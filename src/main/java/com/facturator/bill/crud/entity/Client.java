@@ -14,7 +14,7 @@ public class Client {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="cli_numero")
-	private String cNumero;
+	private int cNumero;
 	
 	@Column(name="cli_type")
 	private String cType;
@@ -47,7 +47,7 @@ public class Client {
 		
 	}
 
-	public Client(String cNumero, String cType, String cNomPrenomRaisonSociale, String cAdresse, String cCodePostal,
+	public Client(int cNumero, String cType, String cNomPrenomRaisonSociale, String cAdresse, String cCodePostal,
 			String cVille, String cTelephoneMobile, String cTelephoneFixe, String cSiteInternet, String cEmail) {
 		this.cNumero = cNumero;
 		this.cType = cType;
@@ -61,11 +61,11 @@ public class Client {
 		this.cEmail = cEmail;
 	}
 
-	public String getcNumero() {
+	public int getcNumero() {
 		return cNumero;
 	}
 
-	public void setcNumero(String cNumero) {
+	public void setcNumero(int cNumero) {
 		this.cNumero = cNumero;
 	}
 

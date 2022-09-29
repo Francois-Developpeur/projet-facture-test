@@ -1,5 +1,7 @@
 package com.facturator.bill.crud.entity;
 
+import java.math.BigInteger;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +16,7 @@ public class Entreprise {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ent_numero_siret")
-	private int eNumeroSiret;
+	private BigInteger eNumeroSiret;
 	
 	@Column(name="ent_nom")
 	private String eNom;
@@ -41,7 +43,7 @@ public class Entreprise {
 		
 	}
 
-	public Entreprise(int eNumeroSiret, String eNom, String ePrenom, String eNomEntreprise, String eAdresse,
+	public Entreprise(BigInteger eNumeroSiret, String eNom, String ePrenom, String eNomEntreprise, String eAdresse,
 			String eCodePostal, String eVille, String eTelephoneFixe) {
 		this.eNumeroSiret = eNumeroSiret;
 		this.eNom = eNom;
@@ -53,11 +55,11 @@ public class Entreprise {
 		this.eTelephoneFixe = eTelephoneFixe;
 	}
 
-	public int geteNumeroSiret() {
+	public BigInteger geteNumeroSiret() {
 		return eNumeroSiret;
 	}
 
-	public void seteNumeroSiret(int eNumeroSiret) {
+	public void seteNumeroSiret(BigInteger eNumeroSiret) {
 		this.eNumeroSiret = eNumeroSiret;
 	}
 
@@ -122,6 +124,6 @@ public class Entreprise {
 		return "Entreprise [eNumeroSiret=" + eNumeroSiret + ", eNom=" + eNom + ", ePrenom=" + ePrenom
 				+ ", eNomEntreprise=" + eNomEntreprise + ", eAdresse=" + eAdresse + ", eCodePostal=" + eCodePostal
 				+ ", eVille=" + eVille + ", eTelephoneFixe=" + eTelephoneFixe + "]";
-	}	
+	}
 	
 }

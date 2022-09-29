@@ -14,7 +14,7 @@ public class Produit {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="pro_reference")
-	private String pReference;
+	private int pReference;
 	
 	@Column(name="pro_description")
 	private String pDescription;
@@ -32,7 +32,7 @@ public class Produit {
 		
 	}
 
-	public Produit(String pReference, String pDescription, Double pPrixHT, Double pTauxTVA, String pRemarque) {
+	public Produit(int pReference, String pDescription, Double pPrixHT, Double pTauxTVA, String pRemarque) {
 		this.pReference = pReference;
 		this.pDescription = pDescription;
 		this.pPrixHT = pPrixHT;
@@ -40,11 +40,11 @@ public class Produit {
 		this.pRemarque = pRemarque;
 	}
 
-	public String getpReference() {
+	public int getpReference() {
 		return pReference;
 	}
 
-	public void setpReference(String pReference) {
+	public void setpReference(int pReference) {
 		this.pReference = pReference;
 	}
 

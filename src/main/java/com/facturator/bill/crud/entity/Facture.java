@@ -13,13 +13,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="base_facturation")	
-public class BaseFacturation {
+@Table(name="facture")	
+public class Facture {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="fac_numero")
-	private String fNumero;
+	private int fNumero;
 	
 	@Column(name="fac_bon_de_commande")
 	private int fBonDeCommande;
@@ -39,31 +39,20 @@ public class BaseFacturation {
 	@Column(name="fac_pourcentage_remise")
 	private Double fPourcentageRemise;
 	
-	@Column(name="fac_nbr_heure")
-	private String fNbrHeure;
-	
 	@Column(name="fac_tva")
 	private Double fTVA;
 	
 //	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
 //	@JoinColumn(name="cli_numero")
 //	private int fk_cNumero;
-//	
-//	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-//	@JoinColumn(name="ent_numero_siret")
-//	private int fk_eNumeroSiret;
-//	
-//	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-//	@JoinColumn(name="pro_reference")
-//	private int fk_pReference;
 	
-	public BaseFacturation() {
+	public Facture() {
 		
 	}
 
-	public BaseFacturation(String fNumero, int fBonDeCommande, Date fDateFacture, Date fDateEcheance,
-			Date fPaiementRecu, String fReglement, Double fPourcentageRemise, String fNbrHeure, Double fTVA
-//			int fk_cNumero, int fk_eNumeroSiret, int fk_pReference
+	public Facture(int fNumero, int fBonDeCommande, Date fDateFacture, Date fDateEcheance, Date fPaiementRecu,
+			String fReglement, Double fPourcentageRemise, Double fTVA
+//			, int fk_cNumero
 			) {
 		this.fNumero = fNumero;
 		this.fBonDeCommande = fBonDeCommande;
@@ -72,18 +61,15 @@ public class BaseFacturation {
 		this.fPaiementRecu = fPaiementRecu;
 		this.fReglement = fReglement;
 		this.fPourcentageRemise = fPourcentageRemise;
-		this.fNbrHeure = fNbrHeure;
 		this.fTVA = fTVA;
 //		this.fk_cNumero = fk_cNumero;
-//		this.fk_eNumeroSiret = fk_eNumeroSiret;
-//		this.fk_pReference = fk_pReference;
 	}
 
-	public String getfNumero() {
+	public int getfNumero() {
 		return fNumero;
 	}
 
-	public void setfNumero(String fNumero) {
+	public void setfNumero(int fNumero) {
 		this.fNumero = fNumero;
 	}
 
@@ -135,14 +121,6 @@ public class BaseFacturation {
 		this.fPourcentageRemise = fPourcentageRemise;
 	}
 
-	public String getfNbrHeure() {
-		return fNbrHeure;
-	}
-
-	public void setfNbrHeure(String fNbrHeure) {
-		this.fNbrHeure = fNbrHeure;
-	}
-
 	public Double getfTVA() {
 		return fTVA;
 	}
@@ -158,32 +136,14 @@ public class BaseFacturation {
 //	public void setFk_cNumero(int fk_cNumero) {
 //		this.fk_cNumero = fk_cNumero;
 //	}
-//
-//	public int getFk_eNumeroSiret() {
-//		return fk_eNumeroSiret;
-//	}
-//
-//	public void setFk_eNumeroSiret(int fk_eNumeroSiret) {
-//		this.fk_eNumeroSiret = fk_eNumeroSiret;
-//	}
-//
-//	public int getFk_pReference() {
-//		return fk_pReference;
-//	}
-//
-//	public void setFk_pReference(int fk_pReference) {
-//		this.fk_pReference = fk_pReference;
-//	}
 
 	@Override
 	public String toString() {
-		return "BaseFacturation [fNumero=" + fNumero + ", fBonDeCommande=" + fBonDeCommande + ", fDateFacture="
-				+ fDateFacture + ", fDateEcheance=" + fDateEcheance + ", fPaiementRecu=" + fPaiementRecu
-				+ ", fReglement=" + fReglement + ", fPourcentageRemise=" + fPourcentageRemise + ", fNbrHeure="
-				+ fNbrHeure + ", fTVA=" + fTVA + 
-//				", fk_cNumero=" + fk_cNumero + ", fk_eNumeroSiret=" + fk_eNumeroSiret
-//				+ ", fk_pReference=" + fk_pReference + 
+		return "Facture [fNumero=" + fNumero + ", fBonDeCommande=" + fBonDeCommande + ", fDateFacture=" + fDateFacture
+				+ ", fDateEcheance=" + fDateEcheance + ", fPaiementRecu=" + fPaiementRecu + ", fReglement=" + fReglement
+				+ ", fPourcentageRemise=" + fPourcentageRemise + ", fTVA=" + fTVA + ", fk_cNumero=" + 
+//				fk_cNumero + 
 				"]";
 	}
-	
+
 }
