@@ -42,9 +42,9 @@ public class Facture {
 	@Column(name="fac_tva")
 	private Double fTVA;
 	
-//	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-//	@JoinColumn(name="cli_numero")
-//	private int fk_cNumero;
+
+	@JoinColumn(name="cli_numero")
+	private int fk_cNumero;
 	
 	public Facture() {
 		
@@ -52,7 +52,7 @@ public class Facture {
 
 	public Facture(int fNumero, int fBonDeCommande, Date fDateFacture, Date fDateEcheance, Date fPaiementRecu,
 			String fReglement, Double fPourcentageRemise, Double fTVA
-//			, int fk_cNumero
+			, int fk_cNumero
 			) {
 		this.fNumero = fNumero;
 		this.fBonDeCommande = fBonDeCommande;
@@ -62,7 +62,7 @@ public class Facture {
 		this.fReglement = fReglement;
 		this.fPourcentageRemise = fPourcentageRemise;
 		this.fTVA = fTVA;
-//		this.fk_cNumero = fk_cNumero;
+		this.fk_cNumero = fk_cNumero;
 	}
 
 	public int getfNumero() {
@@ -129,20 +129,20 @@ public class Facture {
 		this.fTVA = fTVA;
 	}
 
-//	public int getFk_cNumero() {
-//		return fk_cNumero;
-//	}
-//
-//	public void setFk_cNumero(int fk_cNumero) {
-//		this.fk_cNumero = fk_cNumero;
-//	}
+	public int getFk_cNumero() {
+		return fk_cNumero;
+	}
+
+	public void setFk_cNumero(int fk_cNumero) {
+		this.fk_cNumero = fk_cNumero;
+	}
 
 	@Override
 	public String toString() {
 		return "Facture [fNumero=" + fNumero + ", fBonDeCommande=" + fBonDeCommande + ", fDateFacture=" + fDateFacture
 				+ ", fDateEcheance=" + fDateEcheance + ", fPaiementRecu=" + fPaiementRecu + ", fReglement=" + fReglement
 				+ ", fPourcentageRemise=" + fPourcentageRemise + ", fTVA=" + fTVA + ", fk_cNumero=" + 
-//				fk_cNumero + 
+				fk_cNumero + 
 				"]";
 	}
 
