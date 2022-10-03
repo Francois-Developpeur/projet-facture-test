@@ -1,5 +1,8 @@
 package com.facturator.bill.crud.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +20,38 @@ public class ProduitService {
 	@Transactional
     public Produit saveProduct(Produit pro) {
     
-        Produit nouveauProduit = pr.save(pro);
-        return nouveauProduit;
+        Produit newProduct = pr.save(pro);
+        return newProduct;
 	
+	}
+	
+	public List<Produit> allProduct(){
+		
+		List<Produit> allProduct = pr.findAll();
+		return allProduct;
+	}
+	
+	public Produit findProduct(int id) {
+		Optional<Produit> resultatId = pr.findById(id);
+		
+		Produit testId = null;
+		
+		if (resultatId.isPresent()) {
+			testId = resultatId.get();
+		} else {
+			throw new RuntimeException("Je n'ai pas trouvé cette id : " + id);
+		
+		}
+		
+		return testId;
+	}
+	
+	public void updateProduct (Produit pro, int id) {
+		pr.save(pro);
+	}
+	
+	public void deleteProduct(int id) {
+		pr.deleteById(id);
 	}
 	
 }
