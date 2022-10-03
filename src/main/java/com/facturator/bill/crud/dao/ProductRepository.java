@@ -6,4 +6,5 @@ import com.facturator.bill.crud.entity.Produit;
 
 public interface ProductRepository extends JpaRepository<Produit, Integer> {
 
+
 }
