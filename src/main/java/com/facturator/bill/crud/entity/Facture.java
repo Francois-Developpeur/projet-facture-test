@@ -42,18 +42,16 @@ public class Facture {
 	@Column(name="fac_tva")
 	private Double fTVA;
 	
-
+	@ManyToOne
 	@JoinColumn(name="cli_numero")
-	private int fk_cNumero;
+	private Client fk_cNumero;
 	
 	public Facture() {
 		
 	}
 
 	public Facture(int fNumero, int fBonDeCommande, Date fDateFacture, Date fDateEcheance, Date fPaiementRecu,
-			String fReglement, Double fPourcentageRemise, Double fTVA
-			, int fk_cNumero
-			) {
+			String fReglement, Double fPourcentageRemise, Double fTVA, Client fk_cNumero) {
 		this.fNumero = fNumero;
 		this.fBonDeCommande = fBonDeCommande;
 		this.fDateFacture = fDateFacture;
@@ -129,11 +127,11 @@ public class Facture {
 		this.fTVA = fTVA;
 	}
 
-	public int getFk_cNumero() {
+	public Client getFk_cNumero() {
 		return fk_cNumero;
 	}
 
-	public void setFk_cNumero(int fk_cNumero) {
+	public void setFk_cNumero(Client fk_cNumero) {
 		this.fk_cNumero = fk_cNumero;
 	}
 
@@ -141,9 +139,7 @@ public class Facture {
 	public String toString() {
 		return "Facture [fNumero=" + fNumero + ", fBonDeCommande=" + fBonDeCommande + ", fDateFacture=" + fDateFacture
 				+ ", fDateEcheance=" + fDateEcheance + ", fPaiementRecu=" + fPaiementRecu + ", fReglement=" + fReglement
-				+ ", fPourcentageRemise=" + fPourcentageRemise + ", fTVA=" + fTVA + ", fk_cNumero=" + 
-				fk_cNumero + 
-				"]";
+				+ ", fPourcentageRemise=" + fPourcentageRemise + ", fTVA=" + fTVA + ", fk_cNumero=" + fk_cNumero + "]";
 	}
 
 }

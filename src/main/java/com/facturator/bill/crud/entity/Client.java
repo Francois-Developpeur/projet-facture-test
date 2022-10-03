@@ -1,15 +1,12 @@
 package com.facturator.bill.crud.entity;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -49,19 +46,18 @@ public class Client {
 	@Column(name="cli_email")
 	private String cEmail;
 	
-	 @OneToMany(
-		        cascade = CascadeType.ALL,
-		        orphanRemoval = true
-		    )
-		    private List<Facture> fac = new ArrayList<>();
+//	 @OneToMany(
+//		        cascade = CascadeType.ALL,
+//		        orphanRemoval = true
+//		    )
+//		    private List<Facture> fac = new ArrayList<>();
 	
 	public Client() {
 		
 	}
 
 	public Client(int cNumero, String cType, String cNomPrenomRaisonSociale, String cAdresse, String cCodePostal,
-			String cVille, String cTelephoneMobile, String cTelephoneFixe, String cSiteInternet, String cEmail,
-			List<Facture> fac) {
+			String cVille, String cTelephoneMobile, String cTelephoneFixe, String cSiteInternet, String cEmail) {
 		this.cNumero = cNumero;
 		this.cType = cType;
 		this.cNomPrenomRaisonSociale = cNomPrenomRaisonSociale;
@@ -72,7 +68,6 @@ public class Client {
 		this.cTelephoneFixe = cTelephoneFixe;
 		this.cSiteInternet = cSiteInternet;
 		this.cEmail = cEmail;
-		this.fac = fac;
 	}
 
 	public int getcNumero() {
@@ -155,20 +150,12 @@ public class Client {
 		this.cEmail = cEmail;
 	}
 
-	public List<Facture> getFac() {
-		return fac;
-	}
-
-	public void setFac(List<Facture> fac) {
-		this.fac = fac;
-	}
-
 	@Override
 	public String toString() {
 		return "Client [cNumero=" + cNumero + ", cType=" + cType + ", cNomPrenomRaisonSociale="
 				+ cNomPrenomRaisonSociale + ", cAdresse=" + cAdresse + ", cCodePostal=" + cCodePostal + ", cVille="
 				+ cVille + ", cTelephoneMobile=" + cTelephoneMobile + ", cTelephoneFixe=" + cTelephoneFixe
-				+ ", cSiteInternet=" + cSiteInternet + ", cEmail=" + cEmail + ", fac=" + fac + "]";
+				+ ", cSiteInternet=" + cSiteInternet + ", cEmail=" + cEmail + "]";
 	}
 
 }

@@ -22,6 +22,4 @@ public class ProduitService {
 	
 	}
 	
-	@Transactional
-	public Li
 }
