@@ -46,4 +46,12 @@ public class ProductService {
 		}
 		return testId;
 	}
+	
+//	public void sauvegarder(Produit testId) {
+//		productRepo.save(testId);
+//	}
+	
+	public void supprimer(int id) {
+		productRepo.deleteById(id);
+	}
 }

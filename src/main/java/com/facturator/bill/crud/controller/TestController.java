@@ -3,6 +3,7 @@ package com.facturator.bill.crud.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,22 +24,38 @@ public class TestController {
 	private ProductService productService;
 		
 	@PostMapping("/produit")
+	//http://localhost:8080/test/produit
 	public Produit saveProduit(@RequestBody Produit pro) {
 		Produit newProduct = productService.saveProduct(pro);
 		return newProduct;
 	}
 	
 	@GetMapping("/listeproduit")
+	//http://localhost:8080/test/listeproduit
 	public List<Produit> allProduct() {
 		List<Produit> listAllProduct = productService.allProduct();
 		return listAllProduct;
 	}
 	
 	@GetMapping("/listeproduit/{pReference}")
+	//http://localhost:8080/test/listeproduit/3
 	public Produit trouverId(@PathVariable int pReference) {
 		Produit nouveauProduit = productService.trouverId(pReference);
 		return nouveauProduit;
 	}
+	
+//	@PostMapping("/sauvegarder")
+//	public String sauvegarderProduit(@ModelAttribute("produit")Produit )
+//	
+	
+	
+	@DeleteMapping("/listeproduit/{pReference}")
+	public void supprimer(@PathVariable("pReference") int id) {
+		//supprimer produit
+		productService.supprimer(id);
+		
+	}
+	
 }
 
 
